@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: dim_parks
+    description: Table of parks from destinations.
+
+snapshots:
+  - name: live_data_snapshot
+    description: Snapshot for tracking changes in live data.

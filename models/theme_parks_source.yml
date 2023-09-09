@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: theme_parks_source
+    schema: "{{ env_var('DBT_TARGET_SCHEMA') }}"
+    description: Data synced from tap-theme-parks.
+    tables:
+      - name: destinations
+        description: Destinations and their parks
+      - name: destination_detail
+        description: Destinations and their details
+      - name: destination_children
+        description: Destinations and information about their child entities. These include parks, attractions, shows and restaurants.
+      - name: live_data_parent_stream
+        description: Table of entity ids used to sync data to live_data
+      - name: live_data
+        description: Live data about entities, including current status, opening and closing times and queue times. These include parks, attractions, shows and restaurants
