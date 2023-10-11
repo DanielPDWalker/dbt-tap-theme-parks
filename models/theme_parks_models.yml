@@ -1,8 +1,12 @@
 version: 2
 
 models:
-  - name: dim_parks
+  - name: dim_park
     description: Table of parks from destinations.
+  - name: dim_park_children
+    description: Table of children entities of parks.
+  - name: dim_destination
+    description: Table of destinations. 
 
 snapshots:
   - name: live_data_snapshot

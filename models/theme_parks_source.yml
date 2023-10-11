@@ -15,3 +15,7 @@ sources:
         description: Table of entity ids used to sync data to live_data
       - name: live_data
         description: Live data about entities, including current status, opening and closing times and queue times. These include parks, attractions, shows and restaurants
+      - name: park_detail
+        description: Park detail table
+      - name: park_children
+        description: Child entities of parks.
