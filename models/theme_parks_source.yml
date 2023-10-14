@@ -5,7 +5,7 @@ sources:
     schema: "{{ env_var('DBT_TARGET_SCHEMA') }}"
     description: Data synced from tap-theme-parks.
     tables:
-      - name: destinations
+      - name: destination
         description: Destinations and their parks
       - name: destination_detail
         description: Destinations and their details

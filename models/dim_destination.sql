@@ -1,15 +1,15 @@
 {{ config(materialized='table') }}
 
-with destinations as (
+with destination_detail as (
     SELECT * FROM {{ source ('theme_parks_source', 'destination_detail') }}
 ),
-destinations as (
+destination as (
     SELECT 
         id
         , "name"
         , slug
         , timezone
         , "location"
-    FROM parks
+    FROM destination_detail
 )
-SELECT * FROM destinations
+SELECT * FROM destination
