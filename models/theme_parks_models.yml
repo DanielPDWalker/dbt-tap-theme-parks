@@ -6,7 +6,9 @@ models:
   - name: dim_park_children
     description: Table of children entities of parks.
   - name: dim_destination
-    description: Table of destinations. 
+    description: Table of destinations.
+  - name: fact_recent_live_data
+    description: Table of the most recently synced live data that has been unpacked.
 
 snapshots:
   - name: live_data_snapshot
