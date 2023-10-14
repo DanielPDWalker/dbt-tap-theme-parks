@@ -3,13 +3,63 @@ version: 2
 models:
   - name: dim_park
     description: Table of parks from destinations.
+    columns:
+      - name: id
+        tests:
+          - not_null
+          - unique
+      - name: name
+        tests:
+          - not_null
+      - name: destination_id
+        tests:
+          - not_null
   - name: dim_park_children
     description: Table of children entities of parks.
+    columns:
+      - name: park_id
+        tests:
+          - not_null
+      - name: park_name
+        tests:
+          - not_null
+      - name: child_id
+        tests:
+          - not_null
+          - unique
+      - name: child_name
+        tests:
+          - not_null
   - name: dim_destination
     description: Table of destinations.
+    columns:
+      - name: id
+        tests:
+          - not_null
+          - unique
+      - name: name
+        tests:
+          - not_null
   - name: fact_recent_live_data
     description: Table of the most recently synced live data that has been unpacked.
+    columns:
+      - name: attraction_id
+        tests:
+          - not_null
+      - name: attraction_name
+        tests:
+          - not_null
+      - name: park_id
+        tests:
+          - not_null
 
 snapshots:
   - name: live_data_snapshot
     description: Snapshot for tracking changes in live data.
+    columns:
+      - name: id
+        tests:
+          - not_null
+      - name: livedata
+        tests:
+          - not_null
