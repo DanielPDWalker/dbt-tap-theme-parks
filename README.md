@@ -27,6 +27,17 @@ See the descriptions and lineage below.
 | [dim_park_Children](models/dim_park_children.sql)   | Park child entity (attractions, restaurants, shows and so on) dimension table. |
 | [fact_recent_live_data](models/fact_recent_live_data.sql)   | The most recent live data from all entities the user has synced live data for. This relies on `live_data_snapshot`. |
 
+## Lineage
+
+```mermaid
+erDiagram
+    "source.tap_theme_parks.theme_parks_source.park_children" }|--|{ "model.tap_theme_parks.dim_park_children" : ""
+    "source.tap_theme_parks.theme_parks_source.destination_detail" }|--|{ "model.tap_theme_parks.dim_destination" : ""
+    "source.tap_theme_parks.theme_parks_source.park_detail" }|--|{ "model.tap_theme_parks.dim_park" : ""
+    "snapshot.tap_theme_parks.live_data_snapshot" }|--|{ "model.tap_theme_parks.fact_recent_live_data" : ""
+    "source.tap_theme_parks.theme_parks_source.live_data" }|--|{ "snapshot.tap_theme_parks.live_data_snapshot" : ""
+```
+
 ---
 
 ## Installation Instructions
