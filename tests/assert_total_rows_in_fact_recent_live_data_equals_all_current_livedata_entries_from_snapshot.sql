@@ -4,7 +4,7 @@
 SELECT
     COUNT(unpacked_live_data)
 FROM {{ ref('live_data_snapshot') }} lds, JSONB_ARRAY_ELEMENTS(lds.livedata) AS unpacked_live_data
-WHERE dbt_updated_at IS NULL
+WHERE dbt_valid_to IS NULL
 HAVING COUNT(unpacked_live_data) != (
     SELECT
         COUNT(*)
